@@ -104,16 +104,20 @@ public class XP_pro_level {
 
 		}
 
+		/**
+		 * Der Part hier herunter funktioniert noch nicht!
+		 * Part beneath this not yet working!
+		 */
 		System.out.print(
 				"\n" + "Gib 'quit' ein um das Programm zu beenden oder 'reset' um es neuzustarten" + "\n" + ">> ");
 		Scanner c = new Scanner(System.in);
 //		for(int z = 0; z<maxep.length+2; z++) {
 //			c.nextLine();
 //		}
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-		}
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//		}
 		while (c.hasNextLine()) {
 			String EndInput = c.nextLine();
 			c.close();
