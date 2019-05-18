@@ -29,6 +29,25 @@ public class Grenzen_ausreizen {
 	}
 
 	public static void main(String[] args) {
+		enterData();
+		
+		//Programmendeingabe funktioniert nicht
+		//Programmendeingabe - Anfang
+		System.out.print("\n" + "\n" + "Gib 'reset' ein um das Programm neuzustarten" + "\n" + ">> ");
+		Scanner c = new Scanner(System.in);
+		String endInput = c.nextLine();
+		c.close();
+		if (endInput.equalsIgnoreCase("reset")) {
+			enterData();
+			System.exit(0);
+		} else {
+			System.exit(1);
+		}
+		
+		//Programmendeingabe - Ende
+	}
+	
+	private void enterData(){
 		//Usereingaben - Anfang
 		System.out.println("							POTENZRECHNER" + "\n" + "\n" + "\n");
 		System.out.print("Gib deine Basis ein" + "\n" + ">> ");
@@ -44,22 +63,8 @@ public class Grenzen_ausreizen {
 		BigInteger a = new BigInteger(Integer.toString(firstInput));
 
 		System.out.print("\n" + "Das Ergebnis der Berechnung ist: " + parseBigNumberBIAL(a.pow(secondInput)));
-		
 		//Berechnung und Ausgabe - Ende
 
-		//Programmendeingabe funktioniert nicht
-		//Programmendeingabe - Anfang
-		System.out.print("\n" + "\n" + "Gib 'reset' ein um das Programm neuzustarten" + "\n" + ">> ");
-		Scanner c = new Scanner(System.in);
-		String endInput = c.nextLine();
-		c.close();
-		if (endInput.equalsIgnoreCase("reset")) {
-			main(args);
-			System.exit(0);
-		} else {
-			System.exit(1);
-		}
-		
-		//Programmendeingabe - Ende
 	}
+	
 }
