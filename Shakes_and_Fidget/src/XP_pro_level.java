@@ -55,6 +55,7 @@ public class XP_pro_level {
 	}
 
 	public static void main(String[] args) {
+		// Anfangseingabe - Anfang
 		System.out.print(
 				"Bis zu welchem Level willst du die benötigten XP wissen? (Weniger als 3 ist nicht möglich und wird automatisch hochkorrigiert)"
 						+ "\n" + ">> ");
@@ -70,14 +71,24 @@ public class XP_pro_level {
 		}
 		s.close();
 
+		// Anfangseingabe - Ende
+
+		// Punkteberechnung - Anfang
 		int[] maxep = new int[UserInput];
 		maxep[0] = 0;
 		maxep[1] = 400;
 		maxep[2] = 900;
 		maxep[3] = 1400;
-		System.out.println("\n" + "1: " + maxep[1] + "					Insgesamt benötigte XP: 400" + "\n" + "2: "
-				+ maxep[2] + "					Insgesamt benötigte XP: 1.300" + "\n" + "3: "
-				+ parseBigNumberAL(maxep[3]) + "				Insgesamt benötigte XP: 2.700");
+		BigInteger[] totalmaxep = new BigInteger[UserInput];
+		totalmaxep[0] = new BigInteger("0");
+		totalmaxep[1] = new BigInteger("400");
+		totalmaxep[2] = new BigInteger("1300");
+		totalmaxep[3] = new BigInteger("2700");
+		System.out.println("\n" + "1: " + maxep[1] + "					Insgesamt benötigte XP: "
+				+ parseBigNumberBIAL(totalmaxep[1]) + "\n" + "2: " + maxep[2]
+				+ "					Insgesamt benötigte XP: " + parseBigNumberBIAL(totalmaxep[2]) + "\n" + "3: "
+				+ parseBigNumberAL(maxep[3]) + "				Insgesamt benötigte XP: "
+				+ parseBigNumberBIAL(totalmaxep[3]));
 
 		for (int i = 4; i < maxep.length; i++) {
 			if (maxep[i - 1] == 1500000000) {
@@ -90,23 +101,23 @@ public class XP_pro_level {
 					maxep[i] = 1500000000;
 				}
 			}
-			// System.out.println(i + ": " + parseBigNumber(maxep[i]));
+			totalmaxep[i] = new BigInteger(totalmaxep[i-1].toString()).add(BigInteger.valueOf(maxep[i]));
+			
 			System.out.print(i + ": " + parseBigNumberAL(maxep[i]));
-			BigInteger x = new BigInteger("0");
-			for (int j = 1; j <= i; j++) {
-				x = x.add(BigInteger.valueOf(maxep[j]));
-			}
+			
 			if (String.valueOf(maxep[i]).length() <= 8) {
-				System.out.println("				Insgesamt benötigte XP: " + parseBigNumberBIAL(x));
+				System.out.println("				Insgesamt benötigte XP: " + parseBigNumberBIAL(totalmaxep[i]));
 			} else {
-				System.out.println("			Insgesamt benötigte XP: " + parseBigNumberBIAL(x));
+				System.out.println("			Insgesamt benötigte XP: " + parseBigNumberBIAL(totalmaxep[i]));
 			}
 
 		}
 
+		// Punkteberechnung - Ende
+
 		/**
-		 * Der Part hier herunter funktioniert noch nicht!
-		 * Part beneath this not working, yet!
+		 * Der Part hier herunter funktioniert noch nicht! Endzeile zum resetten oder
+		 * beenden des Programms
 		 */
 		System.out.print(
 				"\n" + "Gib 'quit' ein um das Programm zu beenden oder 'reset' um es neuzustarten" + "\n" + ">> ");
