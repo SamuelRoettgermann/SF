@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.math.BigInteger;
 
-public class Grenzen_ausreizen {
-	// Gleiches Problem wie bei der anderen Klasse nur in simpler
-
+public class Grenzen_ausreizen_Fabi {
+	//Gleiches Problem wie bei der anderen Klasse nur in simpler
+	
 	public static String parseBigNumberBIAL(BigInteger eingabe) {
 		ArrayList<String> AL = new ArrayList<String>();
 		String restzahl = eingabe.toString();
@@ -29,7 +29,26 @@ public class Grenzen_ausreizen {
 	}
 
 	public static void main(String[] args) {
-		// Usereingaben - Anfang
+		enterData();
+		
+		//Programmendeingabe funktioniert nicht
+		//Programmendeingabe - Anfang
+		System.out.print("\n" + "\n" + "Gib 'reset' ein um das Programm neuzustarten" + "\n" + ">> ");
+		Scanner c = new Scanner(System.in);
+		String endInput = c.nextLine();
+		c.close();
+		if (endInput.equalsIgnoreCase("reset")) {
+			enterData();
+			System.exit(0);
+		} else {
+			System.exit(1);
+		}
+		
+		//Programmendeingabe - Ende
+	}
+	
+	public static void enterData(){
+		//Usereingaben - Anfang
 		System.out.println("							POTENZRECHNER" + "\n" + "\n" + "\n");
 		System.out.print("Gib deine Basis ein" + "\n" + ">> ");
 		Scanner s = new Scanner(System.in);
@@ -37,37 +56,15 @@ public class Grenzen_ausreizen {
 		System.out.print("\n" + "Gib deinen Exponenten ein" + "\n" + ">> ");
 		int secondInput = s.nextInt();
 		s.close();
+		
+		//Usereingaben - Ende
 
-		// Usereingaben - Ende
-
-		// Berechnung und Ausgabe - Anfang
+		//Berechnung und Ausgabe - Anfang
 		BigInteger a = new BigInteger(Integer.toString(firstInput));
 
-		System.out.print("\n" + "Das Ergebnis der Berechnung ist: " + parseBigNumberBIAL(a.pow(secondInput))); // parseBigNumberBIAL
-																												// macht
-																												// nur
-																												// Punkte
-																												// zwischen
-																												// die
-																												// Leserlichkeit
-																												// zu
-																												// steigern
+		System.out.print("\n" + "Das Ergebnis der Berechnung ist: " + parseBigNumberBIAL(a.pow(secondInput)));
+		//Berechnung und Ausgabe - Ende
 
-		// Berechnung und Ausgabe - Ende
-
-		// Programmendeingabe funktioniert nicht
-		// Programmendeingabe - Anfang
-		System.out.print("\n" + "\n" + "Gib 'reset' ein um das Programm neuzustarten" + "\n" + ">> ");
-		Scanner c = new Scanner(System.in);
-		String endInput = c.nextLine();
-		c.close();
-		if (endInput.equalsIgnoreCase("reset")) {
-			main(args);
-			System.exit(0);
-		} else {
-			System.exit(1);
-		}
-
-		// Programmendeingabe - Ende
 	}
+	
 }
