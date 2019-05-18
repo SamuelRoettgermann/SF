@@ -106,7 +106,7 @@ public class XP_pro_level {
 
 		/**
 		 * Der Part hier herunter funktioniert noch nicht!
-		 * Part beneath this not yet working!
+		 * Part beneath this not working, yet!
 		 */
 		System.out.print(
 				"\n" + "Gib 'quit' ein um das Programm zu beenden oder 'reset' um es neuzustarten" + "\n" + ">> ");
